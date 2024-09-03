@@ -1,0 +1,16 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(20) NOT NULL,
+    email VARCHAR(40) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE auth_tokens (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    token VARCHAR(255) NOT NULL,
+    expires_at TIMESTAMP NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users (id)
+);
