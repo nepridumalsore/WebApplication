@@ -6,7 +6,7 @@ services:
       POSTGRES_PASSWORD: admin
       POSTGRES_DB: postgres@localhost
     ports:
-      - "5432:5432"
+      - "5432:5431"
     restart: always
 
   app:
